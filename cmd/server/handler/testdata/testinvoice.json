@@ -1,0 +1,17 @@
+{
+  "client" : "Bob Jones",
+  "clientAddress" : "123 Fake Street",
+  "rate" : "16.13",
+  "total" : "100.00",
+  "Date" : "13/05/2022",
+  "invoiceNumber" : 1,
+  "rows" : [
+    {
+      "dates" : "21/03/2022 - 20/04/2022",
+      "desc" : "Personal care",
+      "hours" : "27",
+      "rate" : "16.13",
+      "amount" : "435.51"
+    }
+  ]
+}
