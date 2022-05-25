@@ -2,9 +2,8 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
+	invoicepb "github.com/matnich89/invoiceproto/gen/go/invoice/v1"
 	"invoice-core/cmd/server/internal/logger"
-	"invoice-core/cmd/server/internal/model"
-	"log"
 	"net/http"
 )
 
@@ -21,13 +20,8 @@ func (h *Handler) HealthCheck(c *gin.Context) {
 	c.Writer.WriteHeader(http.StatusOK)
 }
 
-func (h *Handler) SayHelloToSonal(c *gin.Context) {
-	log.Println("Hello Sonal")
-
-}
-
 func (h *Handler) CreateInvoice(c *gin.Context) {
-	var data model.Data
+	var data invoicepb.Invoice
 	if err := c.ShouldBindJSON(&data); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
@@ -35,6 +29,6 @@ func (h *Handler) CreateInvoice(c *gin.Context) {
 		return
 	}
 	h.logger.Info(data.Client)
-	c.JSON(http.StatusOK, data)
+	c.JSON(http.StatusOK, &data)
 
 }

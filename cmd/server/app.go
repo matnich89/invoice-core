@@ -12,10 +12,11 @@ type App struct {
 	handler *handler.Handler
 }
 
-func NewApp(router *gin.Engine, logger *logger.Logger) *App {
+func NewApp(router *gin.Engine, logger *logger.Logger, handler *handler.Handler) *App {
 	return &App{
-		router: gin.Default(),
-		logger: logger,
+		router:  gin.Default(),
+		logger:  logger,
+		handler: handler,
 	}
 }
 
